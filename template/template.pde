@@ -18,11 +18,11 @@ void settings() {
 
 void setup() {
   // noCursor();
-  // frameRate(60);
+  frameRate(60);
   // font = createFont("the_font_we_use.ttf", 64);  
-  // moonlander = Moonlander.initWithSoundtrack(this, "the_music_harri_made.mp3", beats_per_min, 2);
-  // background(255, 255, 255);
-  // moonlander.start();
+  moonlander = Moonlander.initWithSoundtrack(this, "SongMaven-Click-Track-82-BPM.mp3", 82, 2);
+  background(255, 255, 255);
+  moonlander.start();
 }
 
 void draw() {
