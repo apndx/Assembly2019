@@ -13,7 +13,8 @@ PFont font;
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
   // size(1980/2, 1080/2, P2D);
-  fullScreen(P2D);
+  //fullScreen(P2D);
+  fullScreen(P3D);
 }
 
 void setup() {
@@ -28,7 +29,7 @@ void setup() {
 }
 
 
-void draw() {
+void draw() { 
   moonlander.update(); 
 
   translate(width/2, height/2);
@@ -38,8 +39,8 @@ void draw() {
   int updatebackground = moonlander.getIntValue("updatebackground");
   int start = moonlander.getIntValue("start");
   int end = moonlander.getIntValue("end");
-  float huitulaX = (float) moonlander.getValue("huitulaX");
-  float huitulaY = (float) moonlander.getValue("huitulaY");
+  float kooshX = (float) moonlander.getValue("kooshX");
+  float kooshY = (float) moonlander.getValue("kooshY");
   
   if (updatebackground != 0) {
     
@@ -51,22 +52,33 @@ void draw() {
   }
   
    if (scene==0) {  //start/end
-      drawHuitula(huitulaX, huitulaY);
+      drawKoosh(kooshX, kooshY);
+      drawSphereComeHither(kooshX, kooshY);
   }
    if (scene==666) {
       exit();
   }
 }
 
-void drawHuitula(float x, float y) {
+void drawKoosh(float x, float y) {
     if (frameCount % 2 == 0) {
-    fill(frameCount * 2 % 255, frameCount * 7 % 255,
-      frameCount * 9 % 255, frameCount * 3 % 255);
+    fill(frameCount * 2 % 100, frameCount * 7 % 100,
+      frameCount * 9 % 100, frameCount * 3 % 100);
     pushMatrix();
     translate(100, 100);
-    rotate(radians(frameCount * 2  % 360));
+    rotate(radians(frameCount * 2  % 360)); 
     rect(x, y, 800, 5);
     popMatrix();
   }
-  
+}
+
+void drawSphereComeHither(float x, float y) {
+  stroke(255, 50);
+  translate(50, 50, 0);
+  rotateX(y * 0.05);
+  rotateY(x * 0.05);
+  fill(frameCount * 2 % 100, frameCount * 7 % 100,
+      frameCount * 9 % 100, frameCount * 3 % 100);
+  sphereDetail(30 / 4);
+  sphere(x); 
 }
