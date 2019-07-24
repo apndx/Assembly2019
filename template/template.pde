@@ -22,8 +22,11 @@ void setup() {
   // font = createFont("the_font_we_use.ttf", 64);  
   moonlander = Moonlander.initWithSoundtrack(this, "SongMaven-Click-Track-82-BPM.mp3", 82, 2);
   background(255, 255, 255);
+  smooth();
+  noStroke();
   moonlander.start();
 }
+
 
 void draw() {
   moonlander.update(); 
@@ -35,6 +38,8 @@ void draw() {
   int updatebackground = moonlander.getIntValue("updatebackground");
   int start = moonlander.getIntValue("start");
   int end = moonlander.getIntValue("end");
+  float huitulaX = (float) moonlander.getValue("huitulaX");
+  float huitulaY = (float) moonlander.getValue("huitulaY");
   
   if (updatebackground != 0) {
     
@@ -46,12 +51,22 @@ void draw() {
   }
   
    if (scene==0) {  //start/end
-      drawSomething();
+      drawHuitula(huitulaX, huitulaY);
   }
    if (scene==666) {
       exit();
   }
 }
 
-void drawSomething() {   
+void drawHuitula(float x, float y) {
+    if (frameCount % 2 == 0) {
+    fill(frameCount * 2 % 255, frameCount * 7 % 255,
+      frameCount * 9 % 255, frameCount * 3 % 255);
+    pushMatrix();
+    translate(100, 100);
+    rotate(radians(frameCount * 2  % 360));
+    rect(x, y, 800, 5);
+    popMatrix();
+  }
+  
 }
