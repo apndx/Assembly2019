@@ -9,7 +9,7 @@ vaDOD production for Assembly 2019 One Scene competition
 
 ## RULES: One Scene competition
 
-https://www.assembly.org/summer19/demoscene/rules
+Rules from [Assebly webpage:](https://www.assembly.org/summer19/demoscene/rules)
 
 > "In filmmaking and video production, a scene is generally thought of as the action in a single location and continuous time" (Wikipedia). 
 
