@@ -1,7 +1,13 @@
-# Assembly2019
+# Project Medusa @ Assembly2019
 vaDOD production for Assembly 2019 One Scene competition 
 
-### RULES: One Scene competition
+## Team vaDOD
+- [Ava Heinonen](https://github.com/AVRH)
+- [Heli Huhtilainen](https://github.com/apndx)
+- [Harri Mehtälä](https://github.com/hajame)
+- [Virva Svala](https://github.com/vsvala)
+
+## RULES: One Scene competition
 
 https://www.assembly.org/summer19/demoscene/rules
 
