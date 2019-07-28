@@ -1,30 +1,58 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+import moonlander.library.*;
+Moonlander moonlander;
+
 Icosahedron ico;
 Icosahedron ico2;
-float xoff;
+float noiseLevel;
+int icosahedronRadius;
+float xRotationSpeed;
+
 
 
 void setup(){
   size(500,500,P3D);
-  
-  xoff = 0.0;
+  frameRate(60);
+  noiseLevel = 0.0;
+  //moonlander = Moonlander.initWithSoundtrack(this, "VadodoraChillMix.mp3", 97, 2);
+  //moonlander.start();
   
 }
 
 void draw(){
-  ico = new Icosahedron(1000, xoff);
-  ico2 = new Icosahedron(250, xoff);
+  //moonlander.update(); 
+  //icosahedronRadius = moonlander.getIntValue("radius");
+  //noiseLevel = moonlander.getValue("noise");
+  //xRotationSpeed = moonlander.getValue("xRotation");
+  
+  
+  //create two icosahedrons with radius and noiseLevel
+  ico = new Icosahedron(icosahedronRadius, noiseLevel);
+  ico2 = new Icosahedron(icosahedronRadius, noiseLevel);
+  //set background and initialize lights
   background(0);
   lights();
+  //set origo to center of screen
   translate(width/2, height/2);
-  xoff =  xoff + 0.01;
   
+  //increase noiselevel each draw
+  noiseLevel =  noiseLevel + 0.01;
+  
+   //draw icosahedron
    pushMatrix();
    stroke(255,255,255);
-   rotateX(frameCount*PI/185);
+   rotateX(xRotationSpeed);
    ico2.create();
    popMatrix();
 }
 
+//helper classes 
 class Dimension3D{
   float w,h,d;
   Dimension3D(float w, float h, float d){
@@ -101,14 +129,22 @@ abstract class Shape3D{
 
 class Icosahedron extends Shape3D{
 
-  // icosahedron
+  // icosahedron data
+  //location of the topmost point
   PVector topPoint;
+  //an array containing the locations of each 5 corner points of the top pentagon
   PVector[] topPent = new PVector[5];
+  //location of the bottommost point
   PVector bottomPoint;
+  //an array containing the locations of each 5 corners of the bottom pentagon
   PVector[] bottomPent = new PVector[5];
+  //angle for drawing the top pentagon
   float angle = 0, radius = 150;
+  //distance of triangles
   float triDist;
+  //heights of triangles
   float triHt;
+  //magic
   float a, b, c;
   float noiseLevel;
   
@@ -119,47 +155,49 @@ class Icosahedron extends Shape3D{
     init();
   }
 
-  Icosahedron(PVector v, float radius){
-    super(v);
-    this.radius = radius;
-    init();
-  }
-
   // calculate geometry
   void init(){
+    //math magic
     c = dist(cos(0)*radius, sin(0)*radius, cos(radians(72))*radius,  sin(radians(72))*radius);
     b = radius;
     a = (float)(Math.sqrt(((c*c)-(b*b))));
 
     triHt = noise(noiseLevel)*(float)(Math.sqrt((c*c)-((c/2)*(c/2))));
-
+  
+    //calculate the locations of each 5 corner points of the top pentagon
     for (int i=0; i<topPent.length; i++){
       topPent[i] = new PVector(noise(noiseLevel)*cos(angle)*radius, noise(noiseLevel*2)*sin(angle)*radius, noise(noiseLevel*0.5)*triHt/2.0f);
       angle+=radians(72);
     }
+    //calculate the location of the top point
     topPoint = new PVector(0, 0, noise(noiseLevel)*triHt/2.0f+a);
     angle = 72.0f/2.0f;
+    
+    //calculate the locations of each 5 corner points of the bottom pentagon
     for (int i=0; i<topPent.length; i++){
       bottomPent[i] = new PVector(noise(noiseLevel*3)*cos(angle)*radius, noise(noiseLevel/3)*sin(angle)*radius, -triHt/2.0f);
       angle+=radians(72);
     }
+    //calculate the location of the bottom point
     bottomPoint = new PVector(0, 0, -(triHt/2.0f+a));
   }
 
   // draws icosahedron 
   void create(){
+    //for each corner point of the top pentagon
     for (int i=0; i<topPent.length; i++){
       // icosahedron top
       beginShape();
-      
+       //4 first triangles
       if (i<topPent.length-1){
         noFill();
-        curveVertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        curveVertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
-        curveVertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
-      } 
+        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
+        vertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
+        vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
+      }
+      //the last triangle
       else {
-        curveVertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
+        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
         vertex(x+topPent[0].x, y+topPent[0].y, z+topPent[0].z);
       }
@@ -258,21 +296,5 @@ class Icosahedron extends Shape3D{
     }
   }
 
-  void rotateX(float theta){
-  }
 
-  void rotateY(float theta){
-  }
-
-
-}
-
-void Triangle(){
-  int numberOfLayers = 2;
-  int triangleSideLength = 4;
-  int triangleHeight = triangleSideLength / numberOfLayers;
-  beginShape();
-   
-  endShape();
-  
 }
