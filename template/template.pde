@@ -8,7 +8,11 @@ import moonlander.library.*;
 
 Moonlander moonlander;
 PFont font; 
-
+Icosahedron ico;
+Icosahedron ico2;
+float noiseLevel;
+float icosahedronRadius = 50.0;
+float xRotationSpeed = 2.0;
 
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
@@ -25,6 +29,7 @@ void setup() {
   background(255, 255, 255);
   smooth();
   noStroke();
+  noiseLevel=0.0;
   moonlander.start();
 }
 
@@ -69,7 +74,12 @@ void draw() {
    if (scene==0) { 
       drawKoosh(kooshX, kooshY, kooshR, kooshG, kooshB, kooshOpacity, kooshRotation, kooshCounter);
       drawSphereComeHither(kooshX, kooshY, kooshR, kooshG, kooshB, kooshOpacity, sphereDetail);
+  } 
+  if (scene==1) {
+      drawIcosahedron();
+    
   }
+  
    if (scene==666) {
       exit();
   }
@@ -103,4 +113,31 @@ void drawSphereComeHither(float x, float y, int kooshR, int kooshG, int kooshB, 
   //sphereDetail((int)(random(100))/ 4);
   sphereDetail(sphereDetail/ 4);
   sphere(x); 
+}
+
+void drawIcosahedron() {
+  moonlander.update(); 
+  //icosahedronRadius = moonlander.getIntValue("radius");
+  //noiseLevel = moonlander.getValue("noise");
+  //xRotationSpeed = moonlander.getValue("xRotation");
+  
+  
+  //create two icosahedrons with radius and noiseLevel
+  ico = new Icosahedron(icosahedronRadius, noiseLevel);
+  ico2 = new Icosahedron(icosahedronRadius, noiseLevel);
+  //set background and initialize lights
+  background(0);
+  lights();
+  //set origo to center of screen
+  translate(width/2, height/2);
+  
+  //increase noiselevel each draw
+  noiseLevel =  noiseLevel + 0.01;
+  
+   //draw icosahedron
+   pushMatrix();
+   stroke(255,255,255);
+   rotateX(xRotationSpeed);
+   ico2.create();
+   popMatrix(); 
 }
