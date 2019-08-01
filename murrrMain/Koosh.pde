@@ -1,3 +1,6 @@
+
+  class Koosh {
+  
   //koosh coordinates for line starting point in the middle:
   float kooshX = (float) moonlander.getValue("kooshX");
   float kooshY = (float) moonlander.getValue("kooshY");
@@ -23,4 +26,6 @@ void drawKoosh(float x, float y, int kooshR, int kooshG, int kooshB, int kooshOp
     rect(x, y, 800, 5);
     popMatrix();
   }
+}
+
 }
