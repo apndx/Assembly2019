@@ -11,14 +11,13 @@ PFont font;
 Icosahedron ico;
 Icosahedron ico2;
 float noiseLevel;
-float icosahedronRadius = 50.0;
+float icosahedronRadius = 150.0;
 float xRotationSpeed = 2.0;
 
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
-  // size(1980/2, 1080/2, P2D);
-  //fullScreen(P2D);
-  fullScreen(P3D);
+  size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
+  //fullScreen(P3D);
 }
 
 void setup() {
@@ -119,7 +118,7 @@ void drawIcosahedron() {
   moonlander.update(); 
   //icosahedronRadius = moonlander.getIntValue("radius");
   //noiseLevel = moonlander.getValue("noise");
-  //xRotationSpeed = moonlander.getValue("xRotation");
+  xRotationSpeed = (float)moonlander.getValue("xRotation");
   
   
   //create two icosahedrons with radius and noiseLevel
@@ -129,15 +128,15 @@ void drawIcosahedron() {
   background(0);
   lights();
   //set origo to center of screen
-  translate(width/2, height/2);
+  //translate(width/2, height/2);
   
   //increase noiselevel each draw
   noiseLevel =  noiseLevel + 0.01;
   
    //draw icosahedron
-   pushMatrix();
+  
    stroke(255,255,255);
    rotateX(xRotationSpeed);
    ico2.create();
-   popMatrix(); 
+   
 }

@@ -169,9 +169,9 @@ class Icosahedron extends Shape3D{
       if (i<topPent.length-2){
         beginShape();
         fill(100, 25, 124);
-        curveVertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
-        curveVertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
-        curveVertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
+        vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
+        vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
+        vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
         endShape(CLOSE);
 
         beginShape();
