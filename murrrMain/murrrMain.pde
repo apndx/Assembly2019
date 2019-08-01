@@ -40,10 +40,10 @@ void draw() {
   translate(width/2, height/2);
   scale(height / 1000.0);
 
-  int scene = moonlander.getIntValue("scene"); 
-  int updatebackground = moonlander.getIntValue("updatebackground");
-  int start = moonlander.getIntValue("start");
-  int end = moonlander.getIntValue("end");
+  int scene = moonlander.getIntValue("main:scene"); 
+  int updatebackground = moonlander.getIntValue("main:updatebackground");
+  //int start = moonlander.getIntValue("main:start");
+  //int end = moonlander.getIntValue("main:end");
    
 
   
@@ -77,7 +77,7 @@ void drawIcosahedron() {
   moonlander.update(); 
   //icosahedronRadius = moonlander.getIntValue("radius");
   //noiseLevel = moonlander.getValue("noise");
-  xRotationSpeed = (float)moonlander.getValue("xRotation");
+  xRotationSpeed = (float)moonlander.getValue("icosahedron:xRotation");
   
   
   //create two icosahedrons with radius and noiseLevel

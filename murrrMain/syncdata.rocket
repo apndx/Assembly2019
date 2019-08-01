@@ -1,52 +1,10 @@
 <sync rows="128">
 	<tracks>
-		<track name="scene">
+		<track name="main:scene">
 			<key row="0" value="1" interpolation="0"/>
 		</track>
-		<track name="updatebackground"/>
-		<track name="start"/>
-		<track name="end"/>
-		<track name="kooshX">
-			<key row="0" value="0" interpolation="3"/>
-			<key row="120" value="400" interpolation="0"/>
-		</track>
-		<track name="kooshY">
-			<key row="0" value="0" interpolation="2"/>
-			<key row="120" value="400" interpolation="0"/>
-		</track>
-		<track name="kooshR">
-			<key row="0" value="0" interpolation="1"/>
-			<key row="120" value="255" interpolation="0"/>
-		</track>
-		<track name="kooshG">
-			<key row="0" value="0" interpolation="1"/>
-			<key row="120" value="255" interpolation="0"/>
-		</track>
-		<track name="kooshB">
-			<key row="0" value="0" interpolation="1"/>
-			<key row="120" value="255" interpolation="0"/>
-		</track>
-		<track name="kooshOpa">
-			<key row="0" value="0" interpolation="1"/>
-			<key row="120" value="100" interpolation="0"/>
-		</track>
-		<track name="kooshRotation">
-			<key row="0" value="0" interpolation="3"/>
-			<key row="120" value="100" interpolation="0"/>
-		</track>
-		<track name="sphereDetail">
-			<key row="0" value="0" interpolation="2"/>
-			<key row="120" value="100" interpolation="0"/>
-		</track>
-		<track name="kooshCounter">
-			<key row="0" value="0" interpolation="3"/>
-			<key row="120" value="100" interpolation="0"/>
-		</track>
-		<track name="xRotation">
-			<key row="0" value="1" interpolation="1"/>
-			<key row="32" value="2" interpolation="1"/>
-			<key row="80" value="10" interpolation="0"/>
-		</track>
+		<track name="main:updatebackground"/>
+		<track name="icosahedron:xRotation"/>
 	</tracks>
 	<bookmarks/>
 </sync>

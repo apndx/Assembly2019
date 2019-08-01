@@ -2,15 +2,15 @@
   class Koosh {
   
   //koosh coordinates for line starting point in the middle:
-  float kooshX = (float) moonlander.getValue("kooshX");
-  float kooshY = (float) moonlander.getValue("kooshY");
+  float kooshX = (float) moonlander.getValue("koosh:kooshX");
+  float kooshY = (float) moonlander.getValue("koosh:kooshY");
   // kooshColors for fill:
-  int kooshR = (int) moonlander.getValue("kooshR");  
-  int kooshG = (int) moonlander.getValue("kooshG");
-  int kooshB = (int) moonlander.getValue("kooshB");
-  int kooshOpacity = (int) moonlander.getValue("kooshOpa");
-  int kooshRotation = (int) moonlander.getValue("kooshRotation");
-  int kooshCounter = (int) moonlander.getValue("kooshCounter");
+  int kooshR = (int) moonlander.getValue("koosh:kooshR");  
+  int kooshG = (int) moonlander.getValue("koosh:kooshG");
+  int kooshB = (int) moonlander.getValue("koosh:kooshB");
+  int kooshOpacity = (int) moonlander.getValue("koosh:kooshOpa");
+  int kooshRotation = (int) moonlander.getValue("koosh:kooshRotation");
+  int kooshCounter = (int) moonlander.getValue("koosh:kooshCounter");
 
 void drawKoosh(float x, float y, int kooshR, int kooshG, int kooshB, int kooshOpacity, int kooshRotation, int kooshCounter) {
    // if (frameCount % 2 == 0) {
