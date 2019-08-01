@@ -75,9 +75,9 @@ void draw() {
 
 void drawIcosahedron() {
   moonlander.update(); 
-  //icosahedronRadius = moonlander.getIntValue("radius");
-  //noiseLevel = moonlander.getValue("noise");
-  xRotationSpeed = (float)moonlander.getValue("icosahedron:xRotation");
+  icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
+  noiseLevel = (float) moonlander.getValue("ico1:noise");
+  xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
   
   
   //create two icosahedrons with radius and noiseLevel
