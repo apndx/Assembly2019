@@ -163,6 +163,7 @@ class Icosahedron extends Shape3D{
       }
       //the last triangle
       else {
+        noFill();    
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+topPoint.x, y+topPoint.y, z+topPoint.z);
         vertex(x+topPent[0].x, y+topPent[0].y, z+topPent[0].z);
@@ -171,12 +172,14 @@ class Icosahedron extends Shape3D{
 
       // icosahedron bottom
       beginShape();
+         noFill();
       if (i<bottomPent.length-1){
         curveVertex(x+bottomPent[i].x, y+bottomPent[i].y, z+bottomPent[i].z);
         vertex(x+bottomPoint.x, y+bottomPoint.y, z+bottomPoint.z);
         vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
       }
       else {
+        noFill();
         vertex(x+bottomPent[i].x, y+bottomPent[i].y, z+bottomPent[i].z);
         vertex(x+bottomPoint.x, y+bottomPoint.y, z+bottomPoint.z);
         vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
@@ -188,6 +191,7 @@ class Icosahedron extends Shape3D{
     for (int i=0; i<topPent.length; i++){
       if (i<topPent.length-2){
         beginShape();
+        noFill();
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
         vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
@@ -202,12 +206,14 @@ class Icosahedron extends Shape3D{
       }
       else if (i==topPent.length-2){
         beginShape();
+        fill( fillColor1);
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
         vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
         endShape(CLOSE);
 
         beginShape();
+        noFill();
         vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+topPent[i+1].x, y+topPent[i+1].y, z+topPent[i+1].z);
@@ -215,13 +221,14 @@ class Icosahedron extends Shape3D{
       }
       else if (i==topPent.length-1){
         beginShape();
+        noFill();
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
         vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
         endShape(CLOSE);
 
         beginShape();
-        noFill();
+        fill( fillColor1);
         vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+topPent[0].x, y+topPent[0].y, z+topPent[0].z);

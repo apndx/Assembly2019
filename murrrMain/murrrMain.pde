@@ -125,6 +125,7 @@ void drawManyIcosahedrons(){
    int whichColor = moonlander.getIntValue("ico1:color1");
    xRotationSpeed = moonlander.getIntValue("ico1:xRotation");
    xRotationSpeed2 = moonlander.getIntValue("ico2:xRotation2");
+  
    smallerIco = new Icosahedron(smallIcoradius, smallIcoNoise);
    smallerIco2 = new Icosahedron(smallIcoradius + 100, smallIcoNoise);
    bigIco = new Icosahedron(bigIcoradius, bigIcoNoise);
@@ -160,9 +161,9 @@ void drawIcosahedron() {
   icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
   noiseLevel = (float) moonlander.getValue("ico1:noise");
   xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
-  
+  color smallIcoFill2 = color(255, 255,255);
   //create two icosahedrons with radius and noiseLevel
-  ico = new Icosahedron(icosahedronRadius, noiseLevel);
+  ico = new Icosahedron(icosahedronRadius, noiseLevel, smallIcoFill2, smallIcoFill2);
   //set background and initialize lights
   background(0);
   lights();
