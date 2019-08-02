@@ -13,6 +13,7 @@ Icosahedron ico2;
 float noiseLevel;
 float icosahedronRadius = 150.0;
 float xRotationSpeed = 2.0;
+float xRotationSpeedSilma = 2.0;
 
 
 float icosahedronRadius2 = 1500.0;
@@ -20,6 +21,8 @@ float xRotationSpeed2 = 2.0;
 float noiseLevel2;
 
 PImage silma;
+ int silmaOpacity= 80;
+
 
 
 void settings() {
@@ -62,10 +65,14 @@ void draw() {
   int headlineTextScene = moonlander.getIntValue("main:headlineTextScene"); 
 
   int silmaScene = moonlander.getIntValue("main:silmaScene"); 
-  int silmaOpacity = (int) moonlander.getValue("silma:opacity"); 
+  int silmaOpacity = (int) moonlander.getValue("silma:opacity");
+  xRotationSpeedSilma = (float)moonlander.getValue("silma:xRotationSilma");
+  
+  
   icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
   noiseLevel = (float) moonlander.getValue("ico1:noise");
   xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
+ 
   
 
   //int updatebackground = moonlander.getIntValue("main:updatebackground");
@@ -89,18 +96,15 @@ void draw() {
   } 
   if (scene==1) {
       drawIcosahedron();
-   
-    
   }
-    if (headlineTextScene==1) {
+    
+    
+  if (headlineTextScene==1) {
       drawHeadlineText();
-
+   } 
       
-      if (silmaScene == 1) {
-         drawSilma(silmaOpacity, xRotationSpeed);
-      }
-    
-    
+   if (silmaScene == 1) {
+   drawSilma(silmaOpacity, xRotationSpeed);    
   }
   
    if (scene==666) {
@@ -130,7 +134,6 @@ void drawIcosahedron() {
   //increase noiselevel each draw
   noiseLevel =  noiseLevel + 0.01;
   
-   
    //draw icosahedron____________________________________________________________________________
  
    pushMatrix();
@@ -145,8 +148,7 @@ void drawIcosahedron() {
    rotateX(xRotationSpeed);
    ico2.create();
   popMatrix();
-   
-   
+    
 }
 
 //HEADLINE_________________________________________________________________________________
@@ -177,11 +179,10 @@ void drawHeadlineText() {
 
 
 //SILMA_______________________________________________________________________________________
-void drawSilma(int opacity, float xRotationSpeed) {
+void drawSilma(int opacity, float xRotationSpeedSilma) {
     pushMatrix();
     rotateX(xRotationSpeed);
     image(silma, -width, -height);
     tint(255, opacity); 
     popMatrix();
 } 
-
