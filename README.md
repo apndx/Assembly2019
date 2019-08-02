@@ -1,4 +1,4 @@
-# Project Medusa @ Assembly2019
+# murrr @ Assembly2019
 vaDOD production for Assembly 2019 One Scene competition 
 
 ## Team vaDOD
