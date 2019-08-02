@@ -105,25 +105,12 @@
 			<key interpolation="0" value="2" row="56"/>
 		</track>
 		<track name="ico2  :xRotation2"/>
-		<track name="ico3:radius">
-			<key interpolation="0" value="500" row="83"/>
-			<key interpolation="0" value="0" row="96"/>
-		</track>
 		<track name="ico3:radius3">
 			<key interpolation="0" value="100" row="83"/>
 		</track>
-		<track name="ico3:noise">
-			<key interpolation="0" value="300" row="83"/>
-		</track>
-		<track name="ico3:xRotation"/>
-		<track name="ico3:yRotation"/>
 		<track name="ico3:noise3"/>
 		<track name="ico3:xRotation3"/>
 		<track name="ico3:yRotation3"/>
-		<track name="ico4:radius"/>
-		<track name="ico4:noise"/>
-		<track name="ico4:xRotation"/>
-		<track name="ico4:yRotation"/>
 		<track name="ico4:radius4">
 			<key interpolation="0" value="399" row="83"/>
 		</track>
