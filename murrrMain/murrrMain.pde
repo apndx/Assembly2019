@@ -17,6 +17,7 @@ float noiseLevel;
 float icosahedronRadius = 150.0;
 float xRotationSpeed = 2.0;
 float xRotationSpeedSilma = 0;
+float xRotationSpeedPastilli = 0;
 
 
 float icosahedronRadius2 = 1500.0;
@@ -25,6 +26,11 @@ float noiseLevel2;
 
 PImage silma;
  int silmaOpacity= 80;
+ 
+ 
+ PImage pastilli;
+  int pastilliOpacity= 255;
+
 
 
 
@@ -33,6 +39,7 @@ void settings() {
   //size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
   fullScreen(P3D);
 
+  pastilli = loadImage("pastillit1.jpg");
   silma = loadImage("silma.jpg");
  // silma.resize(1920, 1080);
 }
@@ -43,7 +50,7 @@ void setup() {
   frameRate(60);
   // font = createFont("the_font_we_use.ttf", 64);  
   moonlander = Moonlander.initWithSoundtrack(this, "hajame-murrr1.2-82-BPM.mp3", 82, 2);
-  background(255, 255, 255);
+  background(0);
   smooth();
   noStroke();
   noiseLevel=0.0;
@@ -66,10 +73,17 @@ void draw() {
 
   int scene = moonlander.getIntValue("main:scene"); 
   int headlineTextScene = moonlander.getIntValue("main:headlineTextScene"); 
+  int endTextScene = moonlander.getIntValue("main:endTextScene"); 
 
   int silmaScene = moonlander.getIntValue("main:silmaScene"); 
   int silmaOpacity = (int) moonlander.getValue("silma:opacity");
   xRotationSpeedSilma = (float)moonlander.getValue("silma:xRotationSilma"); 
+  
+  
+  int pastilliScene = moonlander.getIntValue("main:pastilliScene"); 
+  int pastilliOpacity = (int) moonlander.getValue("pastilli:pastilliOpacity");
+  xRotationSpeedPastilli = (float)moonlander.getValue("pastilli:xRotationPastilli"); 
+  
   
 
   //int updatebackground = moonlander.getIntValue("main:updatebackground");
@@ -99,6 +113,7 @@ void draw() {
   if (headlineTextScene==1) {
       drawHeadlineText();
    } 
+   
       
    if (silmaScene == 1) {
    drawSilma(silmaOpacity, xRotationSpeedSilma);    
@@ -107,6 +122,16 @@ void draw() {
   if(scene == 2){
     drawManyIcosahedrons();
   }
+  
+    
+     if (pastilliScene == 1) {
+   drawPastilli(pastilliOpacity, xRotationSpeedPastilli);    
+  }
+  
+     if ( endTextScene==1) {
+      drawEndText();
+   } 
+     
   
    if (scene==666) {
       exit();
@@ -132,7 +157,7 @@ void drawManyIcosahedrons(){
    
   
   
-  background(0);
+ // background(0);
   lights();  
   pushMatrix();
   rotateX(xRotationSpeed);
@@ -177,7 +202,7 @@ void drawIcosahedron() {
    popMatrix(); 
 }
 
-//HEADLINE_________________________________________________________________________________
+//HEADLINE TEXT_________________________________________________________________________________
 void drawHeadlineText() { 
   //text
   pushMatrix();
@@ -202,6 +227,32 @@ void drawHeadlineText() {
   text("2019", x, 180);
 }
 
+//END TEXT_________________________________________________________________________________
+void drawEndText() { 
+  //text
+  pushMatrix();
+  translate( 0, -450);
+  textAlign(RIGHT);
+  drawTypeEnd  (width * -0.3);//kuinka kaukana reunasta
+  popMatrix();  
+}
+ void drawTypeEnd(float x) {
+  line(x, 0, x, 25);  
+  line(x, 220, x, 2000); //?1000
+  
+  fill(255);
+  textSize(50); 
+  text("Music credits: Hajame", x, 95);
+  fill(150);
+  textSize(30); 
+  text("Painting credits: Apndx", x, 145);
+ 
+  textSize(30); 
+  fill(150);
+  text("Team vaDOD: AVRH, Apndx, Hajame & vsvala ", x, 180);
+
+}
+
  
  
 //SILMA_______________________________________________________________________________________
@@ -211,5 +262,17 @@ void drawSilma(int opacity, float xRotationSpeedSilma) {
     rotateX(xRotationSpeedSilma);  
     image(silma, -width, -height, width*2, height*2);
     tint(255, opacity); 
+    popMatrix();
+} 
+
+
+
+//PASTILLI_______________________________________________________________________________________
+void drawPastilli(int pastilliOpacity, float xRotationSpeedPastilli) {
+    pushMatrix();
+    //translate(0, height/4);
+    rotateX(xRotationSpeedPastilli);  
+    image(pastilli, -width, -height, width*2, height*2);
+    tint(255, pastilliOpacity); 
     popMatrix();
 } 
