@@ -3,6 +3,7 @@
 		<track name="main:scene">
 			<key row="0" value="1" interpolation="0"/>
 			<key row="50" value="2" interpolation="0"/>
+			<key row="82" value="3" interpolation="0"/>
 		</track>
 		<track name="main:updatebackground">
 			<key row="8" value="1" interpolation="0"/>
