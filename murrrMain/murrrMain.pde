@@ -14,16 +14,23 @@ float noiseLevel;
 float icosahedronRadius = 150.0;
 float xRotationSpeed = 2.0;
 
+
 float icosahedronRadius2 = 1500.0;
 float xRotationSpeed2 = 2.0;
 float noiseLevel2;
+
+PImage silma;
+
 
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
   size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
   //fullScreen(P3D);
-  
+
+  silma = loadImage("silma.jpg");
+  silma.resize(1920, 1080);
 }
+
 
 void setup() {
   // noCursor();
@@ -53,17 +60,23 @@ void draw() {
 
   int scene = moonlander.getIntValue("main:scene"); 
   int headlineTextScene = moonlander.getIntValue("main:headlineTextScene"); 
+
+  int silmaScene = moonlander.getIntValue("main:silmaScene"); 
+  int silmaOpacity = (int) moonlander.getValue("silma:opacity"); 
+  icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
+  noiseLevel = (float) moonlander.getValue("ico1:noise");
+  xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
+  
+
   //int updatebackground = moonlander.getIntValue("main:updatebackground");
   //int start = moonlander.getIntValue("main:start");
   //int end = moonlander.getIntValue("main:end");
    
 
-  
-  
-  //if (updatebackground != 0) {
-    
+
+  //if (updatebackground != 0) {  
   //  if (updatebackground == 1) {
-  //    background(0);
+  //   //  background(0);
   //  } else if (updatebackground == -1) {
   //    background(255);
   //  }
@@ -72,16 +85,21 @@ void draw() {
    if (scene==0) { 
       //drawKoosh(kooshX, kooshY, kooshR, kooshG, kooshB, kooshOpacity, kooshRotation, kooshCounter);
       //drawSphereComeHither(kooshX, kooshY, kooshR, kooshG, kooshB, kooshOpacity, sphereDetail);
+     
   } 
   if (scene==1) {
       drawIcosahedron();
    
     
-    
-    
   }
     if (headlineTextScene==1) {
       drawHeadlineText();
+
+      
+      if (silmaScene == 1) {
+         drawSilma(silmaOpacity, xRotationSpeed);
+      }
+    
     
   }
   
@@ -94,9 +112,7 @@ void draw() {
 
 void drawIcosahedron() {
   moonlander.update(); 
-  icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
-  noiseLevel = (float) moonlander.getValue("ico1:noise");
-  xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
+
   
   
   icosahedronRadius2 = (float) moonlander.getIntValue("ico1:radius2");
@@ -111,13 +127,12 @@ void drawIcosahedron() {
   lights();
   //set origo to center of screen
   //translate(width/2, height/2);
-  
   //increase noiselevel each draw
   noiseLevel =  noiseLevel + 0.01;
   
-   //draw icosahedron
- 
    
+   //draw icosahedron____________________________________________________________________________
+ 
    pushMatrix();
    stroke(255,255,255);
    translate( width/10, height/10);
@@ -125,29 +140,24 @@ void drawIcosahedron() {
    ico.create();
    popMatrix();
    
-       pushMatrix(); 
+   pushMatrix(); 
    stroke(255,255,255);
-  // rotateX(xRotationSpeed);
+   rotateX(xRotationSpeed);
    ico2.create();
-      popMatrix();
+  popMatrix();
    
    
 }
 
-
-
-
-//HEADLINE TEXT___________________________________________
+//HEADLINE_________________________________________________________________________________
 void drawHeadlineText() { 
   //text
   pushMatrix();
   translate( width/-3, height/-1.2);
   textAlign(RIGHT);
   drawType(width * -0.3);//kuinka kaukana reunasta
-  popMatrix();
-  
+  popMatrix();  
 }
-
  void drawType(float x) {
   line(x, 0, x, 50);
   line(x, 220, x, 1000); //?1000
@@ -162,5 +172,16 @@ void drawHeadlineText() {
   textSize(30); 
   fill(150);
   text("2019", x, 180);
-
 }
+
+
+
+//SILMA_______________________________________________________________________________________
+void drawSilma(int opacity, float xRotationSpeed) {
+    pushMatrix();
+    rotateX(xRotationSpeed);
+    image(silma, -width, -height);
+    tint(255, opacity); 
+    popMatrix();
+} 
+
