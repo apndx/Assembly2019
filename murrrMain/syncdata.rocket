@@ -2,8 +2,7 @@
 	<tracks>
 		<track name="main:scene">
 			<key row="0" value="1" interpolation="0"/>
-			<key row="31" value="2" interpolation="0"/>
-			<key row="63" value="2" interpolation="0"/>
+			<key row="50" value="2" interpolation="0"/>
 		</track>
 		<track name="main:updatebackground">
 			<key row="8" value="1" interpolation="0"/>
@@ -13,89 +12,81 @@
 			<key row="24" value="0" interpolation="0"/>
 		</track>
 		<track name="main:silmaScene">
-			<key row="0" value="1" interpolation="0"/>
+			<key row="0" value="0" interpolation="0"/>
 			<key row="11" value="0" interpolation="0"/>
+			<key row="32" value="1" interpolation="0"/>
 		</track>
 		<track name="ico1:xRotation">
-
-			<key row="0" value="1" interpolation="1"/>
-
-			<key row="0" value="0" interpolation="2"/>
-			<key row="16" value="2" interpolation="1"/>
-			<key row="24" value="10" interpolation="1"/>
-			<key row="32" value="17" interpolation="1"/>
-			<key row="35" value="19" interpolation="1"/>
-			<key row="48" value="22" interpolation="1"/>
-			<key row="80" value="20" interpolation="1"/>
-
-			<key row="127" value="10" interpolation="0"/>
+			<key row="0" value="0" interpolation="1"/>
+			<key row="8" value="1" interpolation="1"/>
+			<key row="16" value="3" interpolation="1"/>
+			<key row="21" value="6" interpolation="1"/>
+			<key row="24" value="12" interpolation="1"/>
+			<key row="29" value="100" interpolation="1"/>
+			<key row="32" value="0" interpolation="1"/>
+			<key row="56" value="2" interpolation="1"/>
 		</track>
 		<track name="ico1:radius">
 			<key row="0" value="50" interpolation="1"/>
-
-			<key row="8" value="150" interpolation="1"/>
-			<key row="12" value="100" interpolation="1"/>
-			<key row="13" value="50" interpolation="1"/>
-			<key row="19" value="100" interpolation="1"/>
-			<key row="20" value="50" interpolation="1"/>
-			<key row="32" value="250" interpolation="1"/>
-			<key row="40" value="1000" interpolation="1"/>
-			<key row="48" value="10000" interpolation="1"/>
-			<key row="56" value="2000" interpolation="1"/>
-			<key row="64" value="2500" interpolation="1"/>
-			<key row="80" value="3000" interpolation="1"/>
-		</track>
-		<track name="ico1:noise">
-			<key row="0" value="2" interpolation="0"/>
-			<key row="20" value="2" interpolation="2"/>
-			<key row="24" value="1" interpolation="2"/>
-			<key row="32" value="1" interpolation="2"/>
-			<key row="48" value="8" interpolation="2"/>
-			<key row="64" value="7" interpolation="2"/>
-			<key row="80" value="6" interpolation="2"/>
-		</track>
-		<track name="ico1:radius2">
-			<key row="32" value="0" interpolation="0"/>
-			<key row="39" value="150" interpolation="1"/>
-			<key row="44" value="350" interpolation="3"/>
-			<key row="45" value="150" interpolation="1"/>
-			<key row="47" value="200" interpolation="1"/>
+			<key row="7" value="300" interpolation="1"/>
+			<key row="8" value="250" interpolation="1"/>
+			<key row="15" value="700" interpolation="1"/>
+			<key row="16" value="600" interpolation="1"/>
+			<key row="22" value="1100" interpolation="1"/>
+			<key row="23" value="400" interpolation="1"/>
+			<key row="24" value="1100" interpolation="1"/>
+			<key row="32" value="650" interpolation="1"/>
+			<key row="40" value="600" interpolation="1"/>
 			<key row="48" value="350" interpolation="1"/>
-			<key row="49" value="200" interpolation="1"/>
-			<key row="62" value="350" interpolation="1"/>
-			<key row="79" value="500" interpolation="1"/>
-			<key row="80" value="550" interpolation="1"/>
+			<key row="64" value="3000" interpolation="1"/>
+			<key row="72" value="900" interpolation="1"/>
+			<key row="80" value="1200" interpolation="1"/>
 		</track>
-		<track name="ico1:noise2">
-			<key row="32" value="5" interpolation="2"/>
-			<key row="40" value="10" interpolation="2"/>
-			<key row="48" value="15" interpolation="2"/>
-			<key row="64" value="20" interpolation="2"/>
-			<key row="80" value="25" interpolation="2"/>
-		</track>
-		<track name="ico1:xRotation2">
-			<key row="32" value="19" interpolation="0"/>
-			<key row="80" value="20" interpolation="0"/>
-
-		</track>
+		<track name="ico1:noise"/>
 		<track name="ico1:color1">
 			<key row="32" value="1" interpolation="0"/>
 			<key row="40" value="2" interpolation="0"/>
 			<key row="51" value="1" interpolation="0"/>
 		</track>
-		<track name="ico1 :radius2">
-			<key row="33" value="1000" interpolation="1"/>
-			<key row="80" value="500" interpolation="1"/>
-			<key row="96" value="1100" interpolation="0"/>
+		<track name="ico1:radius2"/>
+		<track name="ico1:noise2"/>
+		<track name="ico2:radius2">
+			<key row="52" value="0" interpolation="1"/>
+			<key row="59" value="250" interpolation="1"/>
+			<key row="64" value="500" interpolation="3"/>
+			<key row="65" value="400" interpolation="1"/>
+			<key row="67" value="250" interpolation="1"/>
+			<key row="68" value="350" interpolation="0"/>
+			<key row="69" value="350" interpolation="1"/>
+			<key row="81" value="350" interpolation="1"/>
+			<key row="98" value="500" interpolation="1"/>
+			<key row="99" value="550" interpolation="1"/>
 		</track>
+		<track name="ico2:noise2">
+			<key row="52" value="5" interpolation="1"/>
+			<key row="57" value="15" interpolation="1"/>
+			<key row="60" value="200" interpolation="1"/>
+			<key row="63" value="500" interpolation="1"/>
+			<key row="64" value="5" interpolation="1"/>
+			<key row="68" value="9" interpolation="1"/>
+			<key row="83" value="20" interpolation="2"/>
+			<key row="99" value="25" interpolation="2"/>
+		</track>
+		<track name="ico2:xRotation2">
+			<key row="52" value="0" interpolation="1"/>
+			<key row="70" value="44" interpolation="1"/>
+			<key row="99" value="20" interpolation="0"/>
+		</track>
+		<track name="ico2 :radius2"/>
 		<track name="silma:opacity">
-			<key row="0" value="80" interpolation="0"/>
-			<key row="11" value="0" interpolation="0"/>
+			<key row="32" value="80" interpolation="0"/>
+			<key row="56" value="0" interpolation="0"/>
 		</track>
 		<track name="silma:xRotationSilma">
-			<key row="0" value="0" interpolation="1"/>
-			<key row="16" value="2" interpolation="0"/>
+			<key row="32" value="0" interpolation="1"/>
+			<key row="56" value="2" interpolation="0"/>
 		</track>
+		<track name="ico2  :xRotation2"/>
 	</tracks>
 	<bookmarks/>
 </sync>

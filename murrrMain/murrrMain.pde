@@ -69,13 +69,7 @@ void draw() {
 
   int silmaScene = moonlander.getIntValue("main:silmaScene"); 
   int silmaOpacity = (int) moonlander.getValue("silma:opacity");
-  xRotationSpeedSilma = (float)moonlander.getValue("silma:xRotationSilma");
-  
-  
-  icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
-  noiseLevel = (float) moonlander.getValue("ico1:noise");
-  xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
- 
+  xRotationSpeedSilma = (float)moonlander.getValue("silma:xRotationSilma"); 
   
 
   //int updatebackground = moonlander.getIntValue("main:updatebackground");
@@ -125,11 +119,12 @@ void drawManyIcosahedrons(){
   
   moonlander.update();
    float smallIcoradius = (float) moonlander.getIntValue("ico1:radius");
-   float bigIcoradius = (float) moonlander.getIntValue("ico1:radius2");
+   float bigIcoradius = (float) moonlander.getIntValue("ico2:radius2");
    float smallIcoNoise = (float) moonlander.getIntValue("ico1:noise");
-   float bigIcoNoise = (float) moonlander.getIntValue("ico1:noise2");
+   float bigIcoNoise = (float) moonlander.getIntValue("ico2:noise2");
    int whichColor = moonlander.getIntValue("ico1:color1");
    xRotationSpeed = moonlander.getIntValue("ico1:xRotation");
+   xRotationSpeed2 = moonlander.getIntValue("ico2:xRotation2");
    smallerIco = new Icosahedron(smallIcoradius, smallIcoNoise);
    smallerIco2 = new Icosahedron(smallIcoradius + 100, smallIcoNoise);
    bigIco = new Icosahedron(bigIcoradius, bigIcoNoise);
@@ -137,8 +132,7 @@ void drawManyIcosahedrons(){
   
   
   background(0);
-  lights();
-  
+  lights();  
   pushMatrix();
   rotateX(xRotationSpeed);
   stroke(255,255,255,50);
@@ -150,7 +144,7 @@ void drawManyIcosahedrons(){
   popMatrix();
   
   pushMatrix();
-  rotateX(0);
+  rotateX(xRotationSpeed2);
   stroke(255,255,255);
   strokeWeight(1);
   bigIco.create();
@@ -163,38 +157,23 @@ void drawManyIcosahedrons(){
 void drawIcosahedron() {
   moonlander.update(); 
 
-  
-  
-  icosahedronRadius2 = (float) moonlander.getIntValue("ico1:radius2");
-  noiseLevel2 = (float) moonlander.getValue("ico1:noise2");
-  xRotationSpeed2 = (float)moonlander.getValue("ico1:xRotation2");
+  icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
+  noiseLevel = (float) moonlander.getValue("ico1:noise");
+  xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
   
   //create two icosahedrons with radius and noiseLevel
   ico = new Icosahedron(icosahedronRadius, noiseLevel);
-  ico2 = new Icosahedron(icosahedronRadius2, noiseLevel2);
   //set background and initialize lights
   background(0);
   lights();
-  //set origo to center of screen
-  //translate(width/2, height/2);
-  //increase noiselevel each draw
-  noiseLevel =  noiseLevel + 0.01;
   
    //draw icosahedron____________________________________________________________________________
- 
    pushMatrix();
    stroke(255,255,255);
    translate( width/10, height/10);
-   rotateX(xRotationSpeed2);
-   ico.create();
-   popMatrix();
-   
-   pushMatrix(); 
-   stroke(255,255,255);
    rotateX(xRotationSpeed);
-   ico2.create();
-  popMatrix();
-    
+   ico.create();
+   popMatrix(); 
 }
 
 //HEADLINE_________________________________________________________________________________
@@ -227,6 +206,7 @@ void drawHeadlineText() {
 //SILMA_______________________________________________________________________________________
 void drawSilma(int opacity, float xRotationSpeedSilma) {
     pushMatrix();
+    translate(0, height/4);
     rotateX(xRotationSpeedSilma);  
     image(silma, -width, -height, width*2, height*2);
     tint(255, opacity); 
