@@ -13,13 +13,16 @@ Icosahedron ico2;
 float noiseLevel;
 float icosahedronRadius = 150.0;
 float xRotationSpeed = 2.0;
-
+PImage silma;
 
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
   size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
   //fullScreen(P3D);
+  silma = loadImage("silma.jpg");
+  silma.resize(1920, 1080);
 }
+
 
 void setup() {
   // noCursor();
@@ -27,6 +30,7 @@ void setup() {
   // font = createFont("the_font_we_use.ttf", 64);  
   moonlander = Moonlander.initWithSoundtrack(this, "hajame-murrr1.2-82-BPM.mp3", 82, 2);
   background(255, 255, 255);
+  //background(silma);
   smooth();
   noStroke();
   noiseLevel=0.0;
@@ -51,7 +55,7 @@ void draw() {
   if (updatebackground != 0) {
     
     if (updatebackground == 1) {
-      background(0);
+     //  background(0);
     } else if (updatebackground == -1) {
       background(255);
     }
@@ -85,6 +89,9 @@ void drawIcosahedron() {
   ico2 = new Icosahedron(icosahedronRadius, noiseLevel);
   //set background and initialize lights
   background(0);
+  //background(silma);
+  image(silma, -width, -height);
+  tint(255, 30); 
   lights();
   //set origo to center of screen
   //translate(width/2, height/2);
