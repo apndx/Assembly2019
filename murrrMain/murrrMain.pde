@@ -17,10 +17,10 @@ PImage silma;
 
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
-  size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
-  //fullScreen(P3D);
+ // size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
+  fullScreen(P3D);
   silma = loadImage("silma.jpg");
-  silma.resize(1920, 1080);
+  //silma.resize(1920, 1080);
 }
 
 
@@ -115,7 +115,7 @@ void drawIcosahedron() {
 void drawSilma(int opacity, float xRotationSpeed) {
     pushMatrix();
     rotateX(xRotationSpeed);
-    image(silma, -width, -height);
+    image(silma, -width, -height, width*2, height*2);
     tint(255, opacity); 
     popMatrix();
 } 
