@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 import moonlander.library.*;
 
 Moonlander moonlander;
-PFont f;
+PFont f;  
 Icosahedron ico;
 Icosahedron ico2;
 Icosahedron smallerIco;
@@ -20,6 +20,7 @@ float xRotationSpeedSilma = 0;
 float icosahedronRadius2 = 1500.0;
 float xRotationSpeed2 = 2.0;
 float noiseLevel2;
+
 
 PImage silma;
  int silmaOpacity= 80;
@@ -142,37 +143,41 @@ Icosahedron first, second, third, fourth;
     
   background(0);
   
+  //1
   pushMatrix();
   rotateX(xRotationSpeed);
   rotateY(yRotationSpeed);
-  stroke(255,255,255);
+  stroke(255,255,255, 100);
   strokeWeight(1);
   first.create();
   popMatrix();
   
+  //2
   pushMatrix();
-  translate(-100, 0);
+  translate(-150, -150);
   rotateX(xRotationSpeed2);
   rotateY(yRotationSpeed2);
-  stroke(255,255,255);
+  stroke(255, 255,255, 100);
   strokeWeight(1);
   second.create();
   popMatrix();
   
+  //3
   pushMatrix();
-  translate(-150, 0);
+  translate(20, 100);
   rotateX(xRotationSpeed3);
   rotateY(yRotationSpeed3);
-  stroke(255,255,255);
+  stroke(255,255,255, 100);
   strokeWeight(1);
   third.create();
   popMatrix();
   
+  //4
   pushMatrix();
-  translate(100, 100);
+  translate(400, 200);
   rotateX(xRotationSpeed4);
   rotateY(yRotationSpeed4);
-  stroke(255,255,255);
+  stroke(255,255,255, 100);
   strokeWeight(1);
   fourth.create();
   popMatrix();  
