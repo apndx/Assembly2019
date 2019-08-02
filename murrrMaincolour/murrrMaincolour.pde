@@ -118,14 +118,14 @@ void drawManyIcosahedrons(){
   color smallIcoFill2 = color(255, 255,255);
   
   moonlander.update();
-   float smallIcoradius = (float) moonlander.getValue("ico1:radius");
-   float bigIcoradius = (float) moonlander.getValue("ico2:radius2");
-   float smallIcoNoise = (float) moonlander.getValue("ico1:noise");
+   float smallIcoradius = (float) moonlander.getIntValue("ico1:radius");
+   float bigIcoradius = (float) moonlander.getIntValue("ico2:radius2");
+   float smallIcoNoise = (float) moonlander.getIntValue("ico1:noise");
    float bigIcoNoise = (float) moonlander.getIntValue("ico2:noise2");
    int whichColor = moonlander.getIntValue("ico1:color1");
-
-   xRotationSpeed = (float) moonlander.getValue("ico1:xRotation");
-   xRotationSpeed2 = (float) moonlander.getValue("ico2:xRotation2");
+   xRotationSpeed = moonlander.getIntValue("ico1:xRotation");
+   xRotationSpeed2 = moonlander.getIntValue("ico2:xRotation2");
+  
    smallerIco = new Icosahedron(smallIcoradius, smallIcoNoise);
    smallerIco2 = new Icosahedron(smallIcoradius + 100, smallIcoNoise);
    bigIco = new Icosahedron(bigIcoradius, bigIcoNoise);
@@ -163,7 +163,7 @@ void drawIcosahedron() {
   xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
   color smallIcoFill2 = color(255, 255,255);
   //create two icosahedrons with radius and noiseLevel
-  ico = new Icosahedron(icosahedronRadius, noiseLevel, smallIcoFill2, smallIcoFill2);
+  ico = new Icosahedron(icosahedronRadius, noiseLevel, smallIcoFill2);
   //set background and initialize lights
   background(0);
   lights();
