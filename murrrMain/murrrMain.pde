@@ -13,12 +13,10 @@ Icosahedron ico2;
 Icosahedron smallerIco;
 Icosahedron smallerIco2;
 Icosahedron bigIco;
-float noiseLevel;
+float noiseLevel = 0;
 float icosahedronRadius = 150.0;
 float xRotationSpeed = 2.0;
 float xRotationSpeedSilma = 0;
-
-
 float icosahedronRadius2 = 1500.0;
 float xRotationSpeed2 = 2.0;
 float noiseLevel2;
@@ -123,10 +121,13 @@ void drawManyDancingIcosahedrons(){
   float icoRadius = (float) moonlander.getValue("ico1:radius");
    float icoNoise =  (float) moonlander.getValue("ico1:noise");
   float xRotationSpeed = (float) moonlander.getValue("ico1:xRotation");
+  float yRotationSpeed = (float) moonlander.getValue("ico1:yRotation");
   first = new Icosahedron(icoRadius, icoNoise);
   
   background(0);
   pushMatrix();
+  rotateX(xRotationSpeed);
+  rotateY(yRotationSpeed);
   stroke(255,255,255);
   strokeWeight(1);
   first.create();
