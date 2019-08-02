@@ -93,8 +93,8 @@ class Icosahedron extends Shape3D{
   //magic
   float a, b, c;
   float noiseLevel;
-  color fillColor1 = color(0,0,0);
-  color fillColor2 = color(0,0,0);
+  color fillColor1 = color(0,0,0,0);
+  color fillColor2 = color(0,0,0,0);
   color strokeColor = color(255,255,255);
   
   
@@ -188,7 +188,6 @@ class Icosahedron extends Shape3D{
     for (int i=0; i<topPent.length; i++){
       if (i<topPent.length-2){
         beginShape();
-        fill(fillColor2);
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
         vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
@@ -216,7 +215,6 @@ class Icosahedron extends Shape3D{
       }
       else if (i==topPent.length-1){
         beginShape();
-        fill(fillColor1);
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
         vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
