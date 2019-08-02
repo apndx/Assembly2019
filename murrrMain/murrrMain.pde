@@ -16,7 +16,7 @@ Icosahedron bigIco;
 float noiseLevel;
 float icosahedronRadius = 150.0;
 float xRotationSpeed = 2.0;
-float xRotationSpeedSilma = 2.0;
+float xRotationSpeedSilma = 0;
 
 
 float icosahedronRadius2 = 1500.0;
@@ -30,11 +30,11 @@ PImage silma;
 
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
-  size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
-  //fullScreen(P3D);
+  //size(1920/2, 1080/2, P3D); //this is the measurement ratio used @ Assembly screen
+  fullScreen(P3D);
 
   silma = loadImage("silma.jpg");
-  silma.resize(1920, 1080);
+ // silma.resize(1920, 1080);
 }
 
 
@@ -107,7 +107,7 @@ void draw() {
    } 
       
    if (silmaScene == 1) {
-   drawSilma(silmaOpacity, xRotationSpeed);    
+   drawSilma(silmaOpacity, xRotationSpeedSilma);    
   }
   
   if(scene == 2){
@@ -201,14 +201,14 @@ void drawIcosahedron() {
 void drawHeadlineText() { 
   //text
   pushMatrix();
-  translate( width/-3, height/-1.2);
+  translate( 0, -450);
   textAlign(RIGHT);
-  drawType(width * -0.3);//kuinka kaukana reunasta
+  drawType  (width * -0.3);//kuinka kaukana reunasta
   popMatrix();  
 }
  void drawType(float x) {
-  line(x, 0, x, 50);
-  line(x, 220, x, 1000); //?1000
+  line(x, 0, x, 25);  
+  line(x, 220, x, 2000); //?1000
   
   fill(255);
   textSize(50); 
@@ -222,13 +222,13 @@ void drawHeadlineText() {
   text("2019", x, 180);
 }
 
-
-
+ 
+ 
 //SILMA_______________________________________________________________________________________
 void drawSilma(int opacity, float xRotationSpeedSilma) {
     pushMatrix();
-    rotateX(xRotationSpeed);
-    image(silma, -width, -height);
+    rotateX(xRotationSpeedSilma);  
+    image(silma, -width, -height, width*2, height*2);
     tint(255, opacity); 
     popMatrix();
 } 

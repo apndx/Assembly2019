@@ -17,11 +17,22 @@
 			<key row="11" value="0" interpolation="0"/>
 		</track>
 		<track name="ico1:xRotation">
+
 			<key row="0" value="1" interpolation="1"/>
+
+			<key row="0" value="0" interpolation="2"/>
+			<key row="16" value="2" interpolation="1"/>
+			<key row="24" value="10" interpolation="1"/>
+			<key row="32" value="17" interpolation="1"/>
+			<key row="35" value="19" interpolation="1"/>
+			<key row="48" value="22" interpolation="1"/>
+			<key row="80" value="20" interpolation="1"/>
+
 			<key row="127" value="10" interpolation="0"/>
 		</track>
 		<track name="ico1:radius">
 			<key row="0" value="50" interpolation="1"/>
+
 			<key row="8" value="150" interpolation="1"/>
 			<key row="12" value="100" interpolation="1"/>
 			<key row="13" value="50" interpolation="1"/>
@@ -65,6 +76,7 @@
 		<track name="ico1:xRotation2">
 			<key row="32" value="19" interpolation="0"/>
 			<key row="80" value="20" interpolation="0"/>
+
 		</track>
 		<track name="ico1:color1">
 			<key row="32" value="1" interpolation="0"/>
