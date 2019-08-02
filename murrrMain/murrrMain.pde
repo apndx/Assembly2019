@@ -30,7 +30,6 @@ void setup() {
   // font = createFont("the_font_we_use.ttf", 64);  
   moonlander = Moonlander.initWithSoundtrack(this, "hajame-murrr1.2-82-BPM.mp3", 82, 2);
   background(255, 255, 255);
-  //background(silma);
   smooth();
   noStroke();
   noiseLevel=0.0;
@@ -45,28 +44,38 @@ void draw() {
   scale(height / 1000.0);
 
   int scene = moonlander.getIntValue("main:scene"); 
-  int updatebackground = moonlander.getIntValue("main:updatebackground");
+  int silmaScene = moonlander.getIntValue("main:silmaScene"); 
+  int silmaOpacity = (int) moonlander.getValue("silma:opacity"); 
+  icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
+  noiseLevel = (float) moonlander.getValue("ico1:noise");
+  xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
+  
+  //int updatebackground = moonlander.getIntValue("main:updatebackground");
   //int start = moonlander.getIntValue("main:start");
   //int end = moonlander.getIntValue("main:end");
    
 
-  
-  
-  if (updatebackground != 0) {
-    
-    if (updatebackground == 1) {
-     //  background(0);
-    } else if (updatebackground == -1) {
-      background(255);
-    }
-  }
+ 
+  //if (updatebackground != 0) {  
+  //  if (updatebackground == 1) {
+  //   //  background(0);
+  //  } else if (updatebackground == -1) {
+  //    background(255);
+  //  }
+  //}
   
    if (scene==0) { 
       //drawKoosh(kooshX, kooshY, kooshR, kooshG, kooshB, kooshOpacity, kooshRotation, kooshCounter);
       //drawSphereComeHither(kooshX, kooshY, kooshR, kooshG, kooshB, kooshOpacity, sphereDetail);
+     
   } 
   if (scene==1) {
       drawIcosahedron();
+      
+      if (silmaScene == 1) {
+         drawSilma(silmaOpacity, xRotationSpeed);
+      }
+     
     
   }
   
@@ -79,9 +88,7 @@ void draw() {
 
 void drawIcosahedron() {
   moonlander.update(); 
-  icosahedronRadius = (float) moonlander.getIntValue("ico1:radius");
-  noiseLevel = (float) moonlander.getValue("ico1:noise");
-  xRotationSpeed = (float)moonlander.getValue("ico1:xRotation");
+
   
   
   //create two icosahedrons with radius and noiseLevel
@@ -89,20 +96,26 @@ void drawIcosahedron() {
   ico2 = new Icosahedron(icosahedronRadius, noiseLevel);
   //set background and initialize lights
   background(0);
-  //background(silma);
-  image(silma, -width, -height);
-  tint(255, 30); 
   lights();
   //set origo to center of screen
   //translate(width/2, height/2);
-  
   //increase noiselevel each draw
   noiseLevel =  noiseLevel + 0.01;
   
    //draw icosahedron
-  
+   pushMatrix();
+   translate(width/10, -height/10);
    stroke(255,255,255);
    rotateX(xRotationSpeed);
    ico2.create();
+   popMatrix();
    
 }
+
+void drawSilma(int opacity, float xRotationSpeed) {
+    pushMatrix();
+    rotateX(xRotationSpeed);
+    image(silma, -width, -height);
+    tint(255, opacity); 
+    popMatrix();
+} 
