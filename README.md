@@ -2,10 +2,10 @@
 vaDOD production for Assembly 2019 One Scene competition 
 
 ## Team vaDOD
-- [Ava Heinonen](https://github.com/AVRH)
-- [Heli Huhtilainen](https://github.com/apndx)
-- [Harri Mehtälä](https://github.com/hajame)
-- [Virva Svala](https://github.com/vsvala)
+- [AVRH](https://github.com/AVRH)
+- [apndx](https://github.com/apndx)
+- [hajame](https://github.com/hajame)
+- [vsvala](https://github.com/vsvala)
 
 ## RULES: One Scene competition
 
