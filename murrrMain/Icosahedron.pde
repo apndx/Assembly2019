@@ -93,13 +93,33 @@ class Icosahedron extends Shape3D{
   //magic
   float a, b, c;
   float noiseLevel;
+  color fillColor1 = color(0,0,0);
+  color fillColor2 = color(0,0,0);
+  color strokeColor = color(255,255,255);
   
-  // constructor
+  
+  // constructors
   Icosahedron(float radius, float noiseLevel){
     this.radius = radius;
     this.noiseLevel = noiseLevel;
     init();
   }
+  //with one color given (other stays black)
+  Icosahedron(float radius, float noiseLevel, color fill1){
+    this.radius = radius;
+    this.noiseLevel = noiseLevel;
+    this.fillColor1 = fill1;
+    init();
+  }
+  //with two colors given
+    Icosahedron(float radius, float noiseLevel, color fill1, color fill2){
+    this.radius = radius;
+    this.noiseLevel = noiseLevel;
+    this.fillColor1 = fill1;
+    this.fillColor2 = fill2;
+    init();
+  }
+
 
   // calculate geometry
   void init(){
@@ -107,7 +127,7 @@ class Icosahedron extends Shape3D{
     c = dist(cos(0)*radius, sin(0)*radius, cos(radians(72))*radius,  sin(radians(72))*radius);
     b = radius;
     a = (float)(Math.sqrt(((c*c)-(b*b))));
-
+    noiseDetail(6,0.3);
     triHt = noise(noiseLevel)*(float)(Math.sqrt((c*c)-((c/2)*(c/2))));
   
     //calculate the locations of each 5 corner points of the top pentagon
@@ -121,7 +141,7 @@ class Icosahedron extends Shape3D{
     
     //calculate the locations of each 5 corner points of the bottom pentagon
     for (int i=0; i<topPent.length; i++){
-      bottomPent[i] = new PVector(noise(noiseLevel*3)*cos(angle)*radius, noise(noiseLevel/3)*sin(angle)*radius, -triHt/2.0f);
+      bottomPent[i] = new PVector(noise(noiseLevel)*cos(angle)*radius, noise(noiseLevel/3)*sin(angle)*radius, -triHt/2.0f);
       angle+=radians(72);
     }
     //calculate the location of the bottom point
@@ -168,7 +188,7 @@ class Icosahedron extends Shape3D{
     for (int i=0; i<topPent.length; i++){
       if (i<topPent.length-2){
         beginShape();
-        fill(100, 25, 124);
+        fill(fillColor2);
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+bottomPent[i+1].x, y+bottomPent[i+1].y, z+bottomPent[i+1].z);
         vertex(x+bottomPent[i+2].x, y+bottomPent[i+2].y, z+bottomPent[i+2].z);
@@ -196,7 +216,7 @@ class Icosahedron extends Shape3D{
       }
       else if (i==topPent.length-1){
         beginShape();
-        fill(255, 120, 10);
+        fill(fillColor1);
         vertex(x+topPent[i].x, y+topPent[i].y, z+topPent[i].z);
         vertex(x+bottomPent[0].x, y+bottomPent[0].y, z+bottomPent[0].z);
         vertex(x+bottomPent[1].x, y+bottomPent[1].y, z+bottomPent[1].z);
