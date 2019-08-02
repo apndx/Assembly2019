@@ -51,19 +51,23 @@
 			<key interpolation="1" value="300" row="83"/>
 			<key interpolation="1" value="700" row="96"/>
 			<key interpolation="1" value="800" row="104"/>
-			<key interpolation="0" value="500" row="112"/>
+			<key interpolation="1" value="500" row="112"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico1:noise">
 			<key interpolation="0" value="1" row="0"/>
 			<key interpolation="0" value="0" row="83"/>
 			<key interpolation="2" value="0" row="96"/>
 			<key interpolation="1" value="14" row="112"/>
-			<key interpolation="0" value="10" row="136"/>
+			<key interpolation="1" value="10" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico1:color1">
 			<key interpolation="0" value="1" row="32"/>
 			<key interpolation="0" value="2" row="40"/>
 			<key interpolation="0" value="1" row="51"/>
+			<key interpolation="1" value="25" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico1:radius2"/>
 		<track name="ico1:noise2"/>
@@ -80,7 +84,8 @@
 			<key interpolation="1" value="300" row="88"/>
 			<key interpolation="1" value="900" row="96"/>
 			<key interpolation="1" value="800" row="104"/>
-			<key interpolation="0" value="500" row="112"/>
+			<key interpolation="1" value="500" row="112"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico2:noise2">
 			<key interpolation="1" value="5" row="52"/>
@@ -92,14 +97,16 @@
 			<key interpolation="0" value="0" row="88"/>
 			<key interpolation="2" value="0" row="96"/>
 			<key interpolation="1" value="14" row="112"/>
-			<key interpolation="0" value="10" row="136"/>
+			<key interpolation="1" value="10" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico2:xRotation2">
 			<key interpolation="1" value="0" row="52"/>
 			<key interpolation="0" value="44" row="70"/>
 			<key interpolation="0" value="0" row="88"/>
 			<key interpolation="1" value="0" row="112"/>
-			<key interpolation="0" value="25" row="136"/>
+			<key interpolation="1" value="25" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico2:yRotation2"/>
 		<track name="ico2:radius">
@@ -121,18 +128,21 @@
 		<track name="ico3:radius3">
 			<key interpolation="1" value="300" row="90"/>
 			<key interpolation="1" value="1000" row="96"/>
-			<key interpolation="0" value="1100" row="112"/>
+			<key interpolation="1" value="1100" row="112"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico3:noise3">
 			<key interpolation="0" value="0" row="90"/>
 			<key interpolation="2" value="0" row="96"/>
 			<key interpolation="1" value="14" row="112"/>
-			<key interpolation="0" value="10" row="136"/>
+			<key interpolation="1" value="10" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico3:xRotation3">
 			<key interpolation="0" value="0" row="90"/>
 			<key interpolation="1" value="0" row="112"/>
-			<key interpolation="0" value="25" row="136"/>
+			<key interpolation="1" value="25" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico3:yRotation3">
 			<key interpolation="0" value="0" row="90"/>
@@ -140,18 +150,21 @@
 		<track name="ico4:radius4">
 			<key interpolation="1" value="300" row="92"/>
 			<key interpolation="1" value="700" row="96"/>
-			<key interpolation="0" value="800" row="112"/>
+			<key interpolation="1" value="800" row="112"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico4:noise4">
 			<key interpolation="0" value="0" row="92"/>
 			<key interpolation="2" value="0" row="96"/>
 			<key interpolation="1" value="14" row="112"/>
-			<key interpolation="0" value="10" row="136"/>
+			<key interpolation="1" value="10" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico4:xRotation4">
 			<key interpolation="0" value="0" row="92"/>
 			<key interpolation="1" value="0" row="112"/>
-			<key interpolation="0" value="25" row="136"/>
+			<key interpolation="1" value="25" row="136"/>
+			<key interpolation="0" value="0" row="152"/>
 		</track>
 		<track name="ico4:yRotation4">
 			<key interpolation="1" value="0" row="92"/>
