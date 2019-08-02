@@ -1,8 +1,14 @@
 <sync rows="189">
 	<tracks>
 		<track name="main:scene">
+<<<<<<< HEAD
 			<key value="1" row="0" interpolation="0"/>
 			<key value="2" row="50" interpolation="0"/>
+=======
+			<key row="0" value="1" interpolation="0"/>
+			<key row="50" value="2" interpolation="0"/>
+			<key row="82" value="3" interpolation="0"/>
+>>>>>>> merge
 		</track>
 		<track name="main:updatebackground">
 			<key value="1" row="8" interpolation="0"/>

@@ -108,9 +108,30 @@ void draw() {
     drawManyIcosahedrons();
   }
   
+  if(scene == 3){
+    drawManyDancingIcosahedrons();
+  }
+  
    if (scene==666) {
       exit();
   }
+}
+
+void drawManyDancingIcosahedrons(){
+  Icosahedron first, second, third, fourth;
+  moonlander.update();
+  float icoRadius = (float) moonlander.getValue("ico1:radius");
+   float icoNoise =  (float) moonlander.getValue("ico1:noise");
+  float xRotationSpeed = (float) moonlander.getValue("ico1:xRotation");
+  first = new Icosahedron(icoRadius, icoNoise);
+  
+  background(0);
+  pushMatrix();
+  stroke(255,255,255);
+  strokeWeight(1);
+  first.create();
+    
+  popMatrix();
 }
 
 void drawManyIcosahedrons(){
@@ -122,10 +143,10 @@ void drawManyIcosahedrons(){
    float bigIcoradius = (float) moonlander.getValue("ico2:radius2");
    float smallIcoNoise = (float) moonlander.getValue("ico1:noise");
    float bigIcoNoise = (float) moonlander.getIntValue("ico2:noise2");
-   int whichColor = moonlander.getIntValue("ico1:color1");
 
-   xRotationSpeed = (float) moonlander.getValue("ico1:xRotation");
-   xRotationSpeed2 = (float) moonlander.getValue("ico2:xRotation2");
+   int whichColor =  moonlander.getIntValue("ico1:color1");
+   xRotationSpeed = (float) moonlander.getIntValue("ico1:xRotation");
+   xRotationSpeed2 = (float) moonlander.getIntValue("ico2:xRotation2");
    smallerIco = new Icosahedron(smallIcoradius, smallIcoNoise);
    smallerIco2 = new Icosahedron(smallIcoradius + 100, smallIcoNoise);
    bigIco = new Icosahedron(bigIcoradius, bigIcoNoise);
