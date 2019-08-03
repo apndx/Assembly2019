@@ -65,6 +65,7 @@ void draw() {
 
   int scene = moonlander.getIntValue("main:scene"); 
   int headlineTextScene = moonlander.getIntValue("main:headlineTextScene"); 
+ int endTextScene = moonlander.getIntValue("main:endTextScene"); 
 
   int silmaScene = moonlander.getIntValue("main:silmaScene"); 
   int silmaOpacity = (int) moonlander.getValue("silma:opacity");
@@ -111,6 +112,10 @@ void draw() {
     drawManyDancingIcosahedrons();
   }
   
+    
+ if ( endTextScene==1) {
+      drawEndText();
+   } 
    if (scene==666) {
       exit();
   }
@@ -271,6 +276,38 @@ void drawHeadlineText() {
   textSize(30); 
   fill(150);
   text("2019", x, 180);
+}
+
+//END TEXT_________________________________________________________________________________
+void drawEndText() { 
+  //text
+  pushMatrix();
+  translate( -200, -450);
+  textAlign(LEFT);
+  drawTypeEnd  (width * -0.3);//kuinka kaukana reunasta
+  popMatrix();  
+}
+
+ void drawTypeEnd(float x) {
+  line(x, 0, x, 25);  
+  line(x, 230, x, 2000); //?1000
+  
+  textSize(50); 
+  fill(200);
+  text("Team vaDOD: ", x, 75);
+    fill(150);
+  textSize(30); 
+  text("AVRH, apndx, hajame & vsvala ", x, 120);
+  
+  fill(100);
+  textSize(20); 
+  text("Music credits: hajame", x, 180);
+  
+  fill(100);
+  textSize(20); 
+  text("Painting credits: apndx", x, 220);
+ 
+
 }
 
  
