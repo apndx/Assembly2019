@@ -210,6 +210,7 @@
 			<key row="0" value="0" interpolation="0"/>
 			<key row="92" value="-0.4" interpolation="1"/>
 		</track>
+		<track name="pastilli:xRotationPastilli"/>
 	</tracks>
 	<bookmarks/>
 </sync>
