@@ -123,7 +123,31 @@ class Icosahedron extends Shape3D{
 
   // calculate geometry
   void init(){
-    //math magic
+    if(noiseLevel == 0){
+      c = dist(cos(0)*radius, sin(0)*radius, cos(radians(72))*radius,  sin(radians(72))*radius);
+    b = radius;
+    a = (float)(Math.sqrt(((c*c)-(b*b))));
+    
+    triHt = (float)(Math.sqrt((c*c)-((c/2)*(c/2))));
+ 
+    //calculate the locations of each 5 corner points of the top pentagon
+    for (int i=0; i<topPent.length; i++){
+      topPent[i] = new PVector(cos(angle)*radius, sin(angle)*radius, triHt/2.0f);
+      angle+=radians(72);
+    }
+    //calculate the location of the top point
+    topPoint = new PVector(0, 0, triHt/2.0f+a);
+    angle = 72.0f/2.0f;
+   
+    //calculate the locations of each 5 corner points of the bottom pentagon
+    for (int i=0; i<topPent.length; i++){
+      bottomPent[i] = new PVector(cos(angle)*radius, sin(angle)*radius, -triHt/2.0f);
+      angle+=radians(72);
+    }
+    //calculate the location of the bottom point
+    bottomPoint = new PVector(0, 0, -(triHt/2.0f+a));
+    } else {
+      //math magic
     c = dist(cos(0)*radius, sin(0)*radius, cos(radians(72))*radius,  sin(radians(72))*radius);
     b = radius;
     a = (float)(Math.sqrt(((c*c)-(b*b))));
@@ -146,6 +170,9 @@ class Icosahedron extends Shape3D{
     }
     //calculate the location of the bottom point
     bottomPoint = new PVector(0, 0, -(triHt/2.0f+a));
+    
+    }
+    
   }
 
   // draws icosahedron
