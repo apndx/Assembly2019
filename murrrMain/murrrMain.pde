@@ -36,7 +36,7 @@ void settings() {
   silma = loadImage("silma.jpg");
   //pastilli = loadImage("pastillit1.jpg");
  
-  bgPastilli = loadImage("pastillit.jpg");
+  bgPastilli = loadImage("pastillit1.jpg");
   
 
   bgPastilli.resize(1920, 1080);
