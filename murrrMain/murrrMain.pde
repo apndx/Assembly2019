@@ -24,8 +24,9 @@ float noiseLevel2;
 
 PImage silma;
  int silmaOpacity= 80;
-
-
+ PImage pastilli;
+  PImage bgPastilli;
+int pastilliOpacity= 150;
 
 void settings() {
   // Set up the drawing area size and renderer (P2D / P3D).
@@ -33,7 +34,12 @@ void settings() {
   fullScreen(P3D);
 
   silma = loadImage("silma.jpg");
- // silma.resize(1920, 1080);
+  //pastilli = loadImage("pastillit1.jpg");
+ 
+  bgPastilli = loadImage("pastillit.jpg");
+  
+
+  bgPastilli.resize(1920, 1080);
 }
 
 
@@ -71,6 +77,10 @@ void draw() {
   int silmaOpacity = (int) moonlander.getValue("silma:opacity");
   xRotationSpeedSilma = (float)moonlander.getValue("silma:xRotationSilma"); 
   
+  
+  int pastilliScene = moonlander.getIntValue("main:pastilliScene"); 
+  int pastilliOpacity = (int) moonlander.getValue("pastilli:pastilliOpacity");
+  
 
   //int updatebackground = moonlander.getIntValue("main:updatebackground");
   //int start = moonlander.getIntValue("main:start");
@@ -101,7 +111,7 @@ void draw() {
    } 
       
    if (silmaScene == 1) {
-   drawSilma(silmaOpacity, xRotationSpeedSilma);    
+     drawSilma(silmaOpacity, xRotationSpeedSilma);    
   }
   
   if(scene == 2){
@@ -109,12 +119,22 @@ void draw() {
   }
   
   if(scene == 3){
+    pushMatrix();
+    translate(0,0,-2000);
     drawManyDancingIcosahedrons();
+    popMatrix();
+      
+  }
+  
+  if (pastilliScene == 1) {
+ //  drawPastilli(pastilliOpacity);    
   }
   
     
  if ( endTextScene==1) {
       drawEndText();
+      
+      
    } 
    if (scene==666) {
       exit();
@@ -145,9 +165,11 @@ Icosahedron first, second, third, fourth;
   second = new Icosahedron(icoRadius2, icoNoise2);
   third = new Icosahedron(icoRadius3, icoNoise3);
   fourth = new Icosahedron(icoRadius4, icoNoise4);
-    
-  background(0);
-  
+ pushMatrix();
+ tint(100,100);
+ background(bgPastilli);
+ popMatrix();
+ 
   //1
   pushMatrix();
   rotateX(xRotationSpeed);
@@ -321,3 +343,12 @@ void drawSilma(int opacity, float xRotationSpeedSilma) {
     tint(255, opacity); 
     popMatrix();
 } 
+
+//PASTILLI_______________________________________________________________________________________
+//void drawPastilli(int pastilliOpacity) {
+//    pushMatrix();
+//    //translate(0, height/4); 
+//    image(pastilli, -width, -height, width*2, height*2);
+//    tint(100, pastilliOpacity); 
+//    popMatrix();
+//} 
