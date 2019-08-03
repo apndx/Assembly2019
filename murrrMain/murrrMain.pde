@@ -119,11 +119,7 @@ void draw() {
   }
   
   if(scene == 3){
-    pushMatrix();
-    translate(0,0,-2000);
     drawManyDancingIcosahedrons();
-    popMatrix();
-      
   }
   
   if (pastilliScene == 1) {
