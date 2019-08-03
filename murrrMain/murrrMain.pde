@@ -286,7 +286,7 @@ void drawHeadlineText() {
   
   fill(255);
   textSize(50); 
-  text("Murrr", x, 95);
+  text("murrr", x, 95);
   fill(150);
   textSize(30); 
   text("Asssembly", x, 145);
@@ -312,18 +312,18 @@ void drawEndText() {
   
   textSize(50); 
   fill(200);
-  text("Team vaDOD: ", x, 75);
+  text("Team vaDOD ", x, 75);
     fill(150);
   textSize(30); 
-  text("AVRH, apndx, hajame & vsvala ", x, 120);
+  text("Code & graphics: AVRH, apndx, hajame & vsvala ", x, 120);
   
   fill(100);
   textSize(20); 
-  text("Music credits: hajame", x, 180);
+  text("Music: hajame", x, 180);
   
   fill(100);
   textSize(20); 
-  text("Painting credits: apndx", x, 220);
+  text("Paintings: apndx, vsvala", x, 220);
  
 
 }
