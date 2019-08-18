@@ -1,7 +1,9 @@
 # murrr @ Assembly2019
 vaDOD production for Assembly 2019 One Scene competition 
 
-![murrr!](https://github.com/apndx/Assembly2019/blob/parametrization-2.0/thumb.png)
+<img src="https://github.com/apndx/murrr/blob/master/murrrMain/data/murrr_eye.jpg" width="400">
+
+- [YouTube](https://www.youtube.com/watch?v=3ciW4HLmYCc#t=22m25s)
 
 ## Team vaDOD
 - [AVRH](https://github.com/AVRH)
